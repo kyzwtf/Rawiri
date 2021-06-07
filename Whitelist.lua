@@ -1,14 +1,6 @@
 local player = game.Players.LocalPlayer
 local whitelistedpeople = {
-    "0owah"
-    "Ruitalix"
-    "tezownsyou"
-    "Negations"
-    "TBANDOZZ"
-    "zenthys"
-    "77777MORTAL"
-    "Provatel"
-  
+    "0owah" 
 }
 for i,v in pairs (whitelistedpeople) do
     if player.Name == v then
