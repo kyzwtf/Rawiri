@@ -49,7 +49,7 @@ local function onHit(hit,handle)
 	    if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
 		if dmgEnabled then
 	        for _,v in pairs(hit.Parent:GetChildren()) do
-	            if v:IsA("Part") and v.Transparency <= 1 and victim.Health > 0 and tick()-t >= 0.05 then
+	            if v:IsA("Part") and v.Transparency <= 0.8 and victim.Health > 0 and tick()-t >= 0.05 then
 	                firetouchinterest(v,handle,0)
 	                firetouchinterest(v,handle,1)
 	                t = tick()
