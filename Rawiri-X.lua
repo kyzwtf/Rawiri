@@ -1,3 +1,8 @@
+-- G = Toggle Visibility
+-- R = Increase Size
+-- T = Lower Size
+-- C = Toggle AutoClicker
+
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Rawiri X!";
 	Text  = "Enjoy Skids";
@@ -16,16 +21,32 @@ rawiri.BrickColor = BrickColor.White()
 rawiri.Transparency = 0.3
 rawiri.Anchored = true
 rawiri.CanCollide = false
-rawiri.Size = Vector3.new(0.5,0.5,0.5)
-rawiri.BottomSurface = Enum.SurfaceType.Smooth
-rawiri.TopSurface = Enum.SurfaceType.Smooth
+rawiri.Size = Vector3.new(0,0,0)
 rawiri.Material = Enum.Material.ForceField
 
-local RawiriX = Instance.new("ScreenGui")
-local TextButton = Instance.new("TextButton")
-RawiriX.Parent = game.CoreGui
-RawiriX.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 local mouse = game.Players.LocalPlayer:GetMouse()
+
+bindg = "g"
+mouse.KeyDown:connect(function(keyg)
+	if keyg == bindg then
+		rawiriEnabled = not rawiriEnabled
+	end
+end)
+
+bindr = "r" 
+mouse.KeyDown:connect(function(keyr)
+	if keyr == bindr then
+		X = X + 0.5
+	end
+end)
+
+bindt = "t"
+mouse.KeyDown:connect(function(keyt)
+	if keyt == bindt then
+		X = X - 0.5
+	end
+end)
+
 
 local plr = game.Players.LocalPlayer
 local t = tick()
@@ -46,33 +67,6 @@ local function onHit(hit,handle)
 		end
     end
 end
-
-
-TextButton.MouseButton1Down:connect(function()
-	X = TextBox.Text
-end)
-
-bindg = "g"
-mouse.KeyDown:connect(function(keyg)
-	if keyg == bindg then
-		rawiriEnabled = not rawiriEnabled
-	end
-end)
-
-
-bindr = "r" 
-mouse.KeyDown:connect(function(keyr)
-	if keyr == bindr then
-		X = X + 0.5
-	end
-end)
-
-bindt = "t"
-mouse.KeyDown:connect(function(keyt)
-	if keyt == bindt then
-		X = X - 0.5
-	end
-end)
 
 local cooldown = false
 game:GetService("RunService").RenderStepped:connect(function()
