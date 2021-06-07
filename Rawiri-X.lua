@@ -1,8 +1,3 @@
--- G = Toggle Visibility
--- R = Increase Size
--- T = Lower Size
--- C = Toggle AutoClicker
-
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Rawiri X!";
 	Text  = "Enjoy Skids";
