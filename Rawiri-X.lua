@@ -7,6 +7,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local active = true
 local trueActive = true
+local dmgEnabled = true
 local rawiriEnabled = false
 local XType = "Sphere"
 local X = 5
