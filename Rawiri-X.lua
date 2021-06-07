@@ -1,3 +1,8 @@
+-- G = Toggle Visibility
+-- R = Increase Size
+-- T = Lower Size
+-- C = Toggle AutoClicker
+
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Rawiri X!";
 	Text  = "Enjoy Skids";
@@ -7,14 +12,13 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local active = true
 local trueActive = true
-local dmgEnabled = true
 local rawiriEnabled = false
 local XType = "Sphere"
 local X = 5
 
 local rawiri = Instance.new("Part")
-rawiri.BrickColor = BrickColor.White()
-rawiri.Transparency = 0.3
+rawiri.BrickColor = BrickColor.Black()
+rawiri.Transparency = 0.2
 rawiri.Anchored = true
 rawiri.CanCollide = false
 rawiri.Size = Vector3.new(0,0,0)
@@ -33,6 +37,11 @@ bindr = "r"
 mouse.KeyDown:connect(function(keyr)
 	if keyr == bindr then
 		X = X + 0.5
+		game.StarterGui:SetCore("SendNotification", {
+        Title = "Increased";
+        Text = "Reach: " .. X;
+        Icon = "";
+        Duration = 0.05;})
 	end
 end)
 
@@ -40,8 +49,14 @@ bindt = "t"
 mouse.KeyDown:connect(function(keyt)
 	if keyt == bindt then
 		X = X - 0.5
+		game.StarterGui:SetCore("SendNotification", {
+        Title = "Decreased";
+        Text = "Reach: " .. X;
+        Icon = "";
+        Duration = 0.05;})
 	end
 end)
+
 
 local plr = game.Players.LocalPlayer
 local t = tick()
@@ -50,7 +65,7 @@ local function onHit(hit,handle)
 	    if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
 		if dmgEnabled then
 	        for _,v in pairs(hit.Parent:GetChildren()) do
-	            if v:IsA("Part") and v.Transparency <= 0.8 and victim.Health > 0 and tick()-t >= 0.05 then
+	            if v:IsA("Part") and v.Transparency <= 1 and victim.Health > 0 and tick()-t >= 0.05 then
 	                firetouchinterest(v,handle,0)
 	                firetouchinterest(v,handle,1)
 	                t = tick()
@@ -98,21 +113,7 @@ game:GetService("RunService").RenderStepped:connect(function()
 	end
 end)
 
-local rb = 0
-while wait() do
-	if rb >= 0.99 then
-		rb = 0
-	elseif rb < 1 then
-		rb = rb+0.009
-	end
-
-	local h = (rb)
-	local color = Color3.fromHSV(h, 1, 0.8)
-
-	rawiri.Color = color
-end
-
-local AC = false
+local AC = true
 local Key = Enum.KeyCode.C
 
 game:GetService("UserInputService").InputBegan:Connect(function(k,g)
