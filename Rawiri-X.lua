@@ -7,9 +7,8 @@ local whitelistedpeople = {
     "TBANDOZZ"
     "zenthys"
     "77777MORTAL"
-    "Provatel
-  
-}
+    "Provatel"
+  }
 for i,v in pairs (whitelistedpeople) do
     if player.Name == v then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/kyzwtf/Rawiri/main/Rawiri",true))();
