@@ -1,3 +1,9 @@
+local player = game.Players.LocalPlayer
+local whitelistedpeople = {
+    "0owah"
+}
+for i,v in pairs (whitelistedpeople) do
+    if player.Name == v then
 game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Rawiri X!";
 	Text  = "Enjoy Skids";
@@ -127,3 +133,6 @@ Sword:Activate()
             end)
   end
 end
+		end
+	end
+
