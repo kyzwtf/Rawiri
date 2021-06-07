@@ -42,7 +42,6 @@ mouse.KeyDown:connect(function(keyt)
 	end
 end)
 
-
 local plr = game.Players.LocalPlayer
 local t = tick()
 local function onHit(hit,handle)
