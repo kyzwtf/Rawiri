@@ -12,6 +12,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 
 local active = true
 local trueActive = true
+local dmgEnabled = true
 local rawiriEnabled = false
 local XType = "Sphere"
 local X = 5
@@ -38,10 +39,10 @@ mouse.KeyDown:connect(function(keyr)
 	if keyr == bindr then
 		X = X + 0.5
 		game.StarterGui:SetCore("SendNotification", {
-        Title = "Increased";
+        Title = "UP";
         Text = "Reach: " .. X;
         Icon = "";
-        Duration = 0.05;})
+        Duration = 0.02;})
 	end
 end)
 
@@ -50,10 +51,10 @@ mouse.KeyDown:connect(function(keyt)
 	if keyt == bindt then
 		X = X - 0.5
 		game.StarterGui:SetCore("SendNotification", {
-        Title = "Decreased";
+        Title = "UP";
         Text = "Reach: " .. X;
         Icon = "";
-        Duration = 0.05;})
+        Duration = 0.02;})
 	end
 end)
 
@@ -65,7 +66,7 @@ local function onHit(hit,handle)
 	    if victim and victim.Parent.Name ~= game.Players.LocalPlayer.Name then
 		if dmgEnabled then
 	        for _,v in pairs(hit.Parent:GetChildren()) do
-	            if v:IsA("Part") and v.Transparency <= 1 and victim.Health > 0 and tick()-t >= 0.05 then
+	            if v:IsA("Part") and v.Transparency <= 0.8 and victim.Health > 0 and tick()-t >= 0.05 then
 	                firetouchinterest(v,handle,0)
 	                firetouchinterest(v,handle,1)
 	                t = tick()
@@ -113,7 +114,7 @@ game:GetService("RunService").RenderStepped:connect(function()
 	end
 end)
 
-local AC = true
+local AC = false
 local Key = Enum.KeyCode.C
 
 game:GetService("UserInputService").InputBegan:Connect(function(k,g)
