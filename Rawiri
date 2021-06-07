@@ -34,7 +34,7 @@ mouse.KeyDown:connect(function(keyr)
 	if keyr == bindr then
 		X = X + 0.5
 		game.StarterGui:SetCore("SendNotification", {
-        Title = "UP";
+        Title = "Increased";
         Text = "Reach: " .. X;
         Icon = "";
         Duration = 0.02;})
@@ -46,7 +46,7 @@ mouse.KeyDown:connect(function(keyt)
 	if keyt == bindt then
 		X = X - 0.5
 		game.StarterGui:SetCore("SendNotification", {
-        Title = "UP";
+        Title = "Decreased";
         Text = "Reach: " .. X;
         Icon = "";
         Duration = 0.02;})
