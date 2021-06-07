@@ -7,7 +7,8 @@ local whitelistedpeople = {
     "TBANDOZZ",
     "zenthys",
     "77777MORTAL",
-    "Provatel"
+    "Provatel",
+    "extvsthewrld"
    
    
 }
